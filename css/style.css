@@ -1,5 +1,6 @@
 /* =========================================
-   PAGES BY PAIGE LLC WEBSITE
+   PAGES BY PAIGE LLC
+   CLEAN WEBSITE STYLESHEET
 ========================================= */
 
 
@@ -44,7 +45,7 @@ a {
 
 
 /* =========================================
-   HEADER / STICKY NAVBAR
+   HEADER / NAVBAR
 ========================================= */
 
 header {
@@ -54,10 +55,12 @@ header {
 
     width: 100%;
 
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.95);
 
-    border-bottom: 1px solid #dbe3ef;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .navbar {
@@ -74,6 +77,7 @@ header {
 .logo {
     display: inline-flex;
     align-items: center;
+
     text-decoration: none;
 }
 
@@ -81,7 +85,9 @@ header {
 .nav-logo-img {
     width: 380px;
     max-width: 42vw;
+
     height: auto;
+
     display: block;
 }
 
@@ -94,17 +100,19 @@ header {
 
     display: flex;
     align-items: center;
+
     gap: 40px;
 }
 
 .nav-links a {
-    text-decoration: none;
     color: #334155;
 
     font-size: 1rem;
     font-weight: 600;
 
-    transition: 0.25s ease;
+    text-decoration: none;
+
+    transition: color 0.25s ease;
 }
 
 .nav-links a:hover {
@@ -118,6 +126,7 @@ header {
 
 .hamburger {
     display: none;
+
     cursor: pointer;
 }
 
@@ -130,6 +139,7 @@ header {
     margin: 5px 0;
 
     background: #0f172a;
+
     border-radius: 5px;
 
     transition: 0.25s ease;
@@ -145,20 +155,114 @@ header {
 
     display: flex;
     align-items: center;
+    justify-content: center;
+
+    padding: 90px 20px 120px;
+
+    position: relative;
+
+    overflow: hidden;
+    isolation: isolate;
 
     text-align: center;
 
-    padding: 90px 0;
-
-    background:
-        radial-gradient(circle at top left, rgba(37, 99, 235, 0.10), transparent 32%),
-        radial-gradient(circle at bottom right, rgba(122, 160, 200, 0.22), transparent 35%),
-        linear-gradient(180deg, #ffffff 0%, #eef6ff 100%);
+    background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #f8fbff 50%,
+        #eef5fd 100%
+    );
 }
 
+
+/* =========================================
+   SUBTLE MARBLE OVERLAY
+========================================= */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image: url("../images/marble-bg.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    opacity: 0.43;
+
+    /*
+       Fades the marble toward the bottom
+       instead of allowing it to end abruptly.
+    */
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 68%,
+        rgba(0, 0, 0, 0.82) 78%,
+        rgba(0, 0, 0, 0.45) 90%,
+        transparent 100%
+    );
+
+    mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 68%,
+        rgba(0, 0, 0, 0.82) 78%,
+        rgba(0, 0, 0, 0.45) 90%,
+        transparent 100%
+    );
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================================
+   HERO TO WEBSITE DESIGNS TRANSITION
+========================================= */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 190px;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(248, 251, 255, 0) 0%,
+        rgba(248, 251, 255, 0.16) 20%,
+        rgba(248, 251, 255, 0.42) 48%,
+        rgba(248, 251, 255, 0.78) 76%,
+        #f8fbff 100%
+    );
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
 .hero-content {
+    width: 100%;
     max-width: 850px;
+
     margin: 0 auto;
+
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 {
@@ -172,6 +276,7 @@ header {
 
 .hero h1 span {
     display: block;
+
     color: #2563eb;
 }
 
@@ -192,6 +297,7 @@ header {
     align-items: center;
 
     gap: 16px;
+
     flex-wrap: wrap;
 }
 
@@ -208,41 +314,54 @@ header {
     border-radius: 10px;
 
     font-weight: 700;
+
     text-decoration: none;
 
-    transition: 0.25s ease;
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .btn-primary {
     background: #2563eb;
     color: #ffffff;
+
+    box-shadow: 0 10px 22px rgba(37, 99, 235, 0.16);
 }
 
 .btn-primary:hover {
     background: #1d4ed8;
+
     transform: translateY(-2px);
+
+    box-shadow: 0 14px 26px rgba(37, 99, 235, 0.22);
 }
 
 .btn-secondary {
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.94);
+
     color: #2563eb;
 
-    border: 1px solid #2563eb;
+    border: 1px solid #7aa0c8;
 }
 
 .btn-secondary:hover {
-    background: #eff6ff;
+    background: #ffffff;
+
     transform: translateY(-2px);
 }
 
 
 /* =========================================
-   SECTION HEADING
+   GENERAL SECTION HEADINGS
 ========================================= */
 
 .section-heading {
     max-width: 760px;
+
     margin: 0 auto 56px;
+
     text-align: center;
 }
 
@@ -255,7 +374,9 @@ header {
 
     font-size: 0.85rem;
     font-weight: 800;
+
     letter-spacing: 0.12em;
+
     text-transform: uppercase;
 }
 
@@ -277,19 +398,43 @@ header {
 
 
 /* =========================================
-   WEBSITE DESIGNS / DEMO CARDS
+   WEBSITE DESIGNS
 ========================================= */
 
 .featured {
+    position: relative;
+
+    margin-top: -1px;
+
     padding: 100px 0;
-    background: linear-gradient(135deg, #f8fbff 0%, #eaf3ff 100%);
+
+    /*
+       Starts with the EXACT color
+       the hero fades into.
+    */
+
+    background: linear-gradient(
+        to bottom,
+        #f8fbff 0%,
+        #f9fcff 12%,
+        #fbfdff 28%,
+        #ffffff 48%,
+        #ffffff 100%
+    );
 }
 
 .template-grid {
     display: grid;
+
     grid-template-columns: repeat(3, minmax(0, 1fr));
+
     gap: 28px;
 }
+
+
+/* =========================================
+   WEBSITE CARDS
+========================================= */
 
 .template-card {
     overflow: hidden;
@@ -301,11 +446,14 @@ header {
 
     box-shadow: 0 18px 45px rgba(17, 47, 95, 0.08);
 
-    transition: 0.25s ease;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .template-card:hover {
     transform: translateY(-6px);
+
     box-shadow: 0 24px 55px rgba(17, 47, 95, 0.14);
 }
 
@@ -319,7 +467,12 @@ header {
 
     padding: 18px;
 
-    background: linear-gradient(135deg, #dbeafe, #f8fbff);
+    background: linear-gradient(
+        135deg,
+        #dbeafe,
+        #f8fbff
+    );
+
     background-size: cover;
     background-position: top center;
 
@@ -336,8 +489,8 @@ header {
 
     background: linear-gradient(
         180deg,
-        rgba(17, 47, 95, 0.05) 0%,
-        rgba(17, 47, 95, 0.45) 100%
+        rgba(17, 47, 95, 0.04) 0%,
+        rgba(17, 47, 95, 0.40) 100%
     );
 
     z-index: 1;
@@ -345,13 +498,15 @@ header {
 
 .template-preview span {
     position: relative;
+
     z-index: 2;
 
     display: inline-block;
 
     padding: 8px 14px;
 
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.94);
+
     color: #112f5f;
 
     border: 1px solid rgba(168, 189, 211, 0.7);
@@ -359,29 +514,48 @@ header {
 
     font-size: 0.85rem;
     font-weight: 800;
+
     letter-spacing: 0.04em;
 }
 
-.template-lawn {
-    background:
-        url("../images/rickys-preview.png"),
-        linear-gradient(135deg, #dbeafe, #f8fbff);
 
+/* =========================================
+   RICKY'S WEBSITE PREVIEW
+========================================= */
+
+.template-lawn {
+    background-image: url("../images/rickys-preview.png");
+
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
 }
 
+
+/* =========================================
+   COMING SOON CARDS
+========================================= */
+
 .template-cleaning {
-    background:
-        linear-gradient(rgba(17, 47, 95, 0.15), rgba(17, 47, 95, 0.15)),
-        linear-gradient(135deg, #a8bdd3, #eaf3ff);
+    background: linear-gradient(
+        135deg,
+        #9db4ce,
+        #dce8f5
+    );
 }
 
 .template-photo {
-    background:
-        linear-gradient(rgba(17, 47, 95, 0.15), rgba(17, 47, 95, 0.15)),
-        linear-gradient(135deg, #7aa0c8, #d8e3ef);
+    background: linear-gradient(
+        135deg,
+        #8fa9c7,
+        #cfdff0
+    );
 }
+
+
+/* =========================================
+   WEBSITE CARD CONTENT
+========================================= */
 
 .template-info {
     padding: 28px;
@@ -407,8 +581,10 @@ header {
 
 .template-bottom {
     display: flex;
+
     justify-content: space-between;
     align-items: center;
+
     gap: 16px;
 }
 
@@ -417,7 +593,9 @@ header {
 
     font-size: 0.9rem;
     font-weight: 800;
+
     letter-spacing: 0.05em;
+
     text-transform: uppercase;
 }
 
@@ -426,9 +604,10 @@ header {
 
     font-size: 0.95rem;
     font-weight: 800;
+
     text-decoration: none;
 
-    transition: 0.25s ease;
+    transition: color 0.25s ease;
 }
 
 .template-link:hover {
@@ -437,17 +616,20 @@ header {
 
 
 /* =========================================
-   ABOUT / WHY
+   ABOUT
 ========================================= */
 
 .why-webcraft {
     padding: 100px 0;
+
     background: #ffffff;
 }
 
 .why-grid {
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
+
     gap: 24px;
 }
 
@@ -463,28 +645,15 @@ header {
 
     box-shadow: 0 12px 30px rgba(17, 47, 95, 0.05);
 
-    transition: 0.25s ease;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .why-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 45px rgba(17, 47, 95, 0.1);
-}
 
-.why-icon {
-    width: 64px;
-    height: 64px;
-
-    margin: 0 auto 22px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background: #eaf3ff;
-    border-radius: 50%;
-
-    font-size: 1.7rem;
+    box-shadow: 0 20px 45px rgba(17, 47, 95, 0.10);
 }
 
 .why-card h3 {
@@ -509,12 +678,15 @@ header {
 
 .process {
     padding: 100px 0;
-    background: #f8fbff;
+
+    background: #f5f9fd;
 }
 
 .process-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 28px;
 }
 
@@ -528,21 +700,25 @@ header {
 
     box-shadow: 0 12px 30px rgba(17, 47, 95, 0.06);
 
-    transition: 0.25s ease;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .process-card:hover {
     transform: translateY(-6px);
+
     box-shadow: 0 20px 45px rgba(17, 47, 95, 0.12);
 }
 
 .process-number {
     margin-bottom: 24px;
 
-    color: #2563eb;
+    color: #7aa0c8;
 
     font-size: 2.4rem;
     font-weight: 900;
+
     line-height: 1;
 }
 
@@ -568,28 +744,35 @@ header {
 
 .cta {
     padding: 100px 0;
+
     background: #ffffff;
 }
 
 .cta-content {
     max-width: 850px;
+
     margin: 0 auto;
 
     padding: 70px 40px;
 
     text-align: center;
 
-    background: linear-gradient(135deg, #112f5f, #2563eb);
+    background: linear-gradient(
+        135deg,
+        #f4f8fc 0%,
+        #edf5fc 100%
+    );
 
+    border: 1px solid #cbd8e6;
     border-radius: 24px;
 
-    box-shadow: 0 20px 45px rgba(37, 99, 235, 0.22);
+    box-shadow: 0 20px 45px rgba(17, 47, 95, 0.08);
 }
 
 .cta-content h2 {
     margin-bottom: 18px;
 
-    color: #ffffff;
+    color: #112f5f;
 
     font-size: clamp(2rem, 4vw, 3.2rem);
     line-height: 1.15;
@@ -600,7 +783,7 @@ header {
 
     margin: 0 auto 34px;
 
-    color: #dbeafe;
+    color: #5f7f9f;
 
     font-size: 1.05rem;
     line-height: 1.7;
@@ -608,31 +791,13 @@ header {
 
 .cta-buttons {
     display: flex;
+
     justify-content: center;
     align-items: center;
 
     gap: 16px;
+
     flex-wrap: wrap;
-}
-
-.cta .btn-primary {
-    background: #ffffff;
-    color: #2563eb;
-}
-
-.cta .btn-primary:hover {
-    background: #eff6ff;
-}
-
-.cta .btn-secondary {
-    background: transparent;
-    color: #ffffff;
-
-    border: 1px solid rgba(255, 255, 255, 0.6);
-}
-
-.cta .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.12);
 }
 
 
@@ -644,6 +809,7 @@ header {
     display: none;
 
     padding: 100px 0;
+
     background: #ffffff;
 }
 
@@ -653,6 +819,7 @@ header {
 
 .request-form {
     max-width: 850px;
+
     margin: 0 auto;
 
     padding: 40px;
@@ -667,7 +834,9 @@ header {
 
 .form-grid {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
+
     gap: 22px;
 }
 
@@ -703,14 +872,17 @@ header {
 
     outline: none;
 
-    transition: 0.25s ease;
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.10);
+    border-color: #7aa0c8;
+
+    box-shadow: 0 0 0 4px rgba(122, 160, 200, 0.12);
 }
 
 .form-group textarea {
@@ -724,16 +896,21 @@ header {
 
 .footer {
     padding: 80px 0 30px;
-    background: #f8fbff;
+
+    background: #f4f8fc;
+
     color: #0f172a;
 }
 
 .footer-content {
     display: grid;
+
     grid-template-columns: 2fr 1fr 1fr 1fr;
+
     gap: 40px;
 
     padding-bottom: 50px;
+
     border-bottom: 1px solid #d8e3ef;
 }
 
@@ -748,13 +925,16 @@ header {
 
 .footer-logo-img-link {
     display: inline-block;
+
     margin-bottom: 22px;
 }
 
 .footer-logo-img {
     width: 190px;
     max-width: 100%;
+
     height: auto;
+
     display: block;
 }
 
@@ -779,9 +959,10 @@ header {
     color: #5f7f9f;
 
     font-size: 0.95rem;
+
     text-decoration: none;
 
-    transition: 0.25s ease;
+    transition: color 0.25s ease;
 }
 
 .footer-links a:hover {
@@ -828,7 +1009,6 @@ header {
     .footer-content {
         grid-template-columns: 1fr 1fr;
     }
-
 }
 
 
@@ -840,6 +1020,7 @@ header {
 
     .navbar {
         min-height: 72px;
+
         padding: 10px 0;
     }
 
@@ -847,11 +1028,16 @@ header {
     .nav-logo-img {
         width: 235px !important;
         max-width: 68vw !important;
+
         height: auto !important;
     }
 
+
+    /* MOBILE MENU */
+
     .hamburger {
         display: block;
+
         flex-shrink: 0;
     }
 
@@ -859,12 +1045,14 @@ header {
         display: none;
 
         position: absolute;
+
         top: 100%;
         left: 0;
         right: 0;
 
         flex-direction: column;
         align-items: flex-start;
+
         gap: 0;
 
         padding: 20px;
@@ -885,6 +1073,7 @@ header {
 
     .nav-links a {
         display: block;
+
         width: 100%;
 
         padding: 14px 0;
@@ -908,9 +1097,24 @@ header {
         transform: rotate(-45deg) translate(6px, -6px);
     }
 
+
+    /* HERO */
+
     .hero {
         min-height: 70vh;
-        padding: 70px 0;
+
+        padding: 70px 20px 100px;
+    }
+
+    .hero::before {
+        background-size: cover;
+        background-position: center center;
+
+        opacity: 0.30;
+    }
+
+    .hero::after {
+        height: 130px;
     }
 
     .hero h1 {
@@ -929,8 +1133,12 @@ header {
     .btn {
         width: 100%;
         max-width: 280px;
+
         text-align: center;
     }
+
+
+    /* SECTIONS */
 
     .featured,
     .why-webcraft,
@@ -948,6 +1156,9 @@ header {
         font-size: clamp(2rem, 9vw, 3rem);
     }
 
+
+    /* WEBSITE CARDS */
+
     .template-grid {
         grid-template-columns: 1fr;
     }
@@ -961,6 +1172,9 @@ header {
         align-items: flex-start;
     }
 
+
+    /* ABOUT */
+
     .why-grid {
         grid-template-columns: 1fr;
     }
@@ -970,8 +1184,12 @@ header {
         padding: 30px 24px;
     }
 
+
+    /* FORM */
+
     .form-grid {
         grid-template-columns: 1fr;
+
         gap: 0;
     }
 
@@ -979,26 +1197,37 @@ header {
         padding: 28px 22px;
     }
 
+
+    /* CTA */
+
     .cta-content {
         padding: 50px 24px;
+
         border-radius: 20px;
     }
 
+
+    /* FOOTER */
+
     .footer {
         padding: 60px 0 28px;
+
         text-align: center;
     }
 
     .footer-content {
         grid-template-columns: 1fr;
+
         gap: 38px;
 
         text-align: center;
+
         justify-items: center;
     }
 
     .footer-brand {
         display: flex;
+
         flex-direction: column;
         align-items: center;
     }
@@ -1009,14 +1238,17 @@ header {
 
     .footer-logo-img {
         width: 190px;
+
         margin: 0 auto;
     }
 
     .footer-brand p {
         max-width: 310px;
+
         margin: 0 auto;
 
         text-align: center;
+
         line-height: 1.7;
     }
 
@@ -1035,11 +1267,6 @@ header {
     .footer-links li {
         margin-bottom: 10px;
     }
-
-    .footer-bottom {
-        text-align: center;
-    }
-
 }
 
 
@@ -1064,7 +1291,17 @@ header {
     }
 
     .hero {
-        padding: 60px 0;
+        min-height: 68vh;
+
+        padding: 60px 20px 90px;
+    }
+
+    .hero::before {
+        opacity: 0.24;
+    }
+
+    .hero::after {
+        height: 110px;
     }
 
     .hero h1 {
@@ -1082,5 +1319,4 @@ header {
     .footer-logo-img {
         width: 170px;
     }
-
 }
